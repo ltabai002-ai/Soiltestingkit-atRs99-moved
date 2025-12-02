@@ -40,7 +40,7 @@ export default function SolutionSection() {
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-green mb-6">
             You can prevent yourself from these consequences at just{' '}
-            <span className="text-warm-yellow animate-bounce-slow inline-block">Rs 49</span> by taking a Soil Test
+            <span className="text-warm-yellow animate-bounce-slow inline-block">Rs 99</span> by taking a Soil Test
           </h2>
           <button className="bg-deep-green text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-deep-green/90 transition-colors duration-300 shadow-lg min-h-[52px]">
             How This Test Helps You
