@@ -12,22 +12,27 @@ interface DropdownProps {
 function Dropdown({ title, description, images, isOpen, onToggle }: DropdownProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-      <button
-        onClick={onToggle}
-        className="w-full px-6 py-5 flex items-center justify-between bg-soft-grey hover:bg-gray-200 transition-colors duration-300 min-h-[60px]"
-      >
-        <div className="flex items-center gap-3">
-          <AlertTriangle className="text-warm-yellow w-6 h-6" />
-          <h3 className="text-xl md:text-2xl font-bold text-deep-green text-left">
+      <div className="bg-soft-grey p-8">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-16 h-16 bg-deep-green rounded-lg flex items-center justify-center flex-shrink-0">
+            <AlertTriangle className="text-warm-yellow w-8 h-8" />
+          </div>
+          <h3 className="text-2xl md:text-3xl font-bold text-deep-green">
             {title}
           </h3>
         </div>
-        {isOpen ? (
-          <ChevronUp className="text-deep-green w-6 h-6 flex-shrink-0" />
-        ) : (
-          <ChevronDown className="text-deep-green w-6 h-6 flex-shrink-0" />
-        )}
-      </button>
+        <button
+          onClick={onToggle}
+          className="w-full bg-warm-yellow text-deep-green font-bold px-6 py-4 rounded-lg hover:bg-gold transition-colors duration-300 shadow-md min-h-[52px] flex items-center justify-center gap-2"
+        >
+          <span>{isOpen ? 'Hide Details' : 'View Details'}</span>
+          {isOpen ? (
+            <ChevronUp className="w-5 h-5" />
+          ) : (
+            <ChevronDown className="w-5 h-5" />
+          )}
+        </button>
+      </div>
 
       <div
         className={`transition-all duration-500 ease-in-out ${
@@ -54,7 +59,7 @@ function Dropdown({ title, description, images, isOpen, onToggle }: DropdownProp
             ))}
           </div>
 
-          <button className="bg-warm-yellow text-deep-green font-bold px-6 py-3 rounded-lg hover:bg-gold transition-colors duration-300 shadow-md min-h-[48px]">
+          <button className="bg-deep-green text-white font-bold px-6 py-3 rounded-lg hover:bg-deep-green/90 transition-colors duration-300 shadow-md min-h-[48px]">
             Learn More
           </button>
         </div>
