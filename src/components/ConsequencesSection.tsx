@@ -47,7 +47,7 @@ function FullPageModal({ title, description, images, isOpen, onClose }: FullPage
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-40 bg-white animate-fade-in">
+    <div className="fixed inset-0 z-40 bg-white animate-fade-in overflow-y-auto">
       <div className="w-full min-h-screen py-12 px-4 md:px-8 lg:px-12">
         <div className="w-full mx-auto">
           <div className="flex items-center justify-between mb-8">
