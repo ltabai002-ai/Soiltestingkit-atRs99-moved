@@ -45,8 +45,8 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-20 min-h-screen flex items-center">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 w-full items-center">
-          <div className="text-center md:text-left">
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Things you must do before{' '}
               <span className="text-warm-yellow">Bhumi Poojan</span>
@@ -57,18 +57,6 @@ export default function HeroSection() {
             <button className="bg-warm-yellow text-deep-green font-bold px-8 py-4 rounded-lg text-lg hover:bg-gold transition-colors duration-300 shadow-lg min-h-[48px] min-w-[160px]">
               Learn More
             </button>
-          </div>
-
-          <div className="w-full">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Soil Testing Guide"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
           </div>
         </div>
       </div>
