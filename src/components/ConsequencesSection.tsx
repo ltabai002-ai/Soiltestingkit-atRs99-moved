@@ -121,7 +121,7 @@ export default function ConsequencesSection() {
           </h2>
         </div>
 
-        <div className="max-w-5xl mx-auto space-y-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-6">
           <Dropdown
             title={soilTestData.title}
             description={soilTestData.description}
