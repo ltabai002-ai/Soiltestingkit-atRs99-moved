@@ -11,58 +11,57 @@ interface DropdownProps {
 
 function Dropdown({ title, description, images, isOpen, onToggle }: DropdownProps) {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="bg-soft-grey p-8">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-16 h-16 bg-deep-green rounded-lg flex items-center justify-center flex-shrink-0">
-            <AlertTriangle className="text-warm-yellow w-8 h-8" />
-          </div>
-          <h3 className="text-2xl md:text-3xl font-bold text-deep-green">
+    <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-2xl overflow-hidden">
+      <div className="p-8 md:p-10">
+        <div className="flex items-center gap-4 mb-8">
+          <AlertTriangle className="text-warm-yellow w-10 h-10 md:w-12 md:h-12 flex-shrink-0" />
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
             {title}
           </h3>
         </div>
+
+        <div
+          className={`transition-all duration-500 ease-in-out ${
+            isOpen ? 'max-h-[2000px] opacity-100 mb-8' : 'max-h-0 opacity-0 mb-0'
+          } overflow-hidden`}
+        >
+          <div className="space-y-6">
+            <p className="text-lg text-gray-300 leading-relaxed">{description}</p>
+
+            <div className={`grid ${images.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6`}>
+              {images.map((image, index) => (
+                <div key={index} className="space-y-3">
+                  <div className="aspect-video rounded-lg overflow-hidden shadow-md">
+                    <img
+                      src={image.url}
+                      alt={image.caption}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-sm md:text-base text-gray-400 font-medium">
+                    {image.caption}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <button className="bg-deep-green text-white font-bold px-6 py-3 rounded-full hover:bg-deep-green/90 transition-colors duration-300 shadow-md min-h-[48px]">
+              Learn More
+            </button>
+          </div>
+        </div>
+
         <button
           onClick={onToggle}
-          className="w-full bg-warm-yellow text-deep-green font-bold px-6 py-4 rounded-lg hover:bg-gold transition-colors duration-300 shadow-md min-h-[52px] flex items-center justify-center gap-2"
+          className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-6 py-4 rounded-full hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg min-h-[56px] flex items-center justify-center gap-2"
         >
-          <span>{isOpen ? 'Hide Details' : 'View Details'}</span>
+          <span className="text-lg">{isOpen ? 'Show Less' : 'Learn More'}</span>
           {isOpen ? (
             <ChevronUp className="w-5 h-5" />
           ) : (
             <ChevronDown className="w-5 h-5" />
           )}
         </button>
-      </div>
-
-      <div
-        className={`transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
-        } overflow-hidden`}
-      >
-        <div className="p-6 space-y-6">
-          <p className="text-lg text-gray-700 leading-relaxed">{description}</p>
-
-          <div className={`grid ${images.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6`}>
-            {images.map((image, index) => (
-              <div key={index} className="space-y-3">
-                <div className="aspect-video rounded-lg overflow-hidden shadow-md">
-                  <img
-                    src={image.url}
-                    alt={image.caption}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-sm md:text-base text-gray-600 font-medium">
-                  {image.caption}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <button className="bg-deep-green text-white font-bold px-6 py-3 rounded-lg hover:bg-deep-green/90 transition-colors duration-300 shadow-md min-h-[48px]">
-            Learn More
-          </button>
-        </div>
       </div>
     </div>
   );
