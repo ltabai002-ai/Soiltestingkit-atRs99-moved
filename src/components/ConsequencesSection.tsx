@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, AlertTriangle, X } from 'lucide-react';
+import { ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react';
 
 interface DropdownProps {
   title: string;
@@ -7,10 +7,9 @@ interface DropdownProps {
   images: { url: string; caption: string }[];
   isOpen: boolean;
   onToggle: () => void;
-  onFullPageView: () => void;
 }
 
-function Dropdown({ title, description, images, isOpen, onToggle, onFullPageView }: DropdownProps) {
+function Dropdown({ title, description, images, isOpen, onToggle }: DropdownProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-soft-grey p-8">
@@ -23,51 +22,20 @@ function Dropdown({ title, description, images, isOpen, onToggle, onFullPageView
           </h3>
         </div>
         <button
-          onClick={onFullPageView}
+          onClick={onToggle}
           className="w-full bg-warm-yellow text-deep-green font-bold px-6 py-4 rounded-lg hover:bg-gold transition-colors duration-300 shadow-md min-h-[52px] flex items-center justify-center gap-2"
         >
-          <span>View Details</span>
-          <ChevronDown className="w-5 h-5" />
+          <span>{isOpen ? 'Hide Details' : 'View Details'}</span>
+          {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
         </button>
       </div>
 
-    </div>
-  );
-}
-
-interface FullPageModalProps {
-  title: string;
-  description: string;
-  images: { url: string; caption: string }[];
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-function FullPageModal({ title, description, images, isOpen, onClose }: FullPageModalProps) {
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 z-40 bg-white animate-fade-in overflow-y-auto">
-      <div className="w-full min-h-screen py-12 px-4 md:px-8 lg:px-12">
-        <div className="w-full mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-deep-green rounded-lg flex items-center justify-center flex-shrink-0">
-                <AlertTriangle className="text-warm-yellow w-8 h-8" />
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-green">
-                {title}
-              </h2>
-            </div>
-            <button
-              onClick={onClose}
-              className="w-12 h-12 bg-soft-grey rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-300"
-              aria-label="Close"
-            >
-              <X className="w-6 h-6 text-deep-green" />
-            </button>
-          </div>
-
+      <div
+        className={`transition-all duration-500 ease-in-out ${
+          isOpen ? 'max-h-[4000px] opacity-100' : 'max-h-0 opacity-0'
+        } overflow-hidden`}
+      >
+        <div className="w-full py-12 px-4 md:px-8 lg:px-12 bg-white">
           <div className="space-y-8">
             <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
               {description}
@@ -103,7 +71,11 @@ function FullPageModal({ title, description, images, isOpen, onClose }: FullPage
 }
 
 export default function ConsequencesSection() {
-  const [fullPageView, setFullPageView] = useState<number | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+
+  const toggleDropdown = (index: number) => {
+    setOpenDropdown(openDropdown === index ? null : index);
+  };
 
   const soilTestData = {
     title: 'Soil Test',
@@ -152,34 +124,24 @@ export default function ConsequencesSection() {
           </h2>
         </div>
 
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-6">
+        <div className="max-w-7xl mx-auto space-y-6">
           <Dropdown
             title={soilTestData.title}
             description={soilTestData.description}
             images={soilTestData.images}
-            isOpen={fullPageView === 0}
-            onToggle={() => {}}
-            onFullPageView={() => setFullPageView(0)}
+            isOpen={openDropdown === 0}
+            onToggle={() => toggleDropdown(0)}
           />
 
           <Dropdown
             title={backfillData.title}
             description={backfillData.description}
             images={backfillData.images}
-            isOpen={fullPageView === 1}
-            onToggle={() => {}}
-            onFullPageView={() => setFullPageView(1)}
+            isOpen={openDropdown === 1}
+            onToggle={() => toggleDropdown(1)}
           />
         </div>
       </div>
-
-      <FullPageModal
-        title={fullPageView === 0 ? soilTestData.title : backfillData.title}
-        description={fullPageView === 0 ? soilTestData.description : backfillData.description}
-        images={fullPageView === 0 ? soilTestData.images : backfillData.images}
-        isOpen={fullPageView !== null}
-        onClose={() => setFullPageView(null)}
-      />
     </section>
   );
 }
