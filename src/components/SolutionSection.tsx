@@ -70,7 +70,15 @@ export default function SolutionSection() {
             })}
           </div>
 
-          <div className="w-full">
+          <div className="w-full space-y-6">
+            <div className="bg-white rounded-lg overflow-hidden shadow-xl">
+              <img
+                src="/WhatsApp Image 2025-12-02 at 4.59.56 PM.jpeg"
+                alt="Free Hammers - Your Soil Testing Kit"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+
             <div className="bg-soft-grey rounded-lg overflow-hidden shadow-xl">
               <div className="relative aspect-video">
                 <iframe
