@@ -71,11 +71,12 @@ export default function SolutionSection() {
           </div>
 
           <div className="w-full space-y-6">
-            <div className="bg-white rounded-lg overflow-hidden shadow-xl">
+            <div className="bg-white rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-500 animate-pulse-slow">
               <img
                 src="/WhatsApp Image 2025-12-02 at 4.59.56 PM.jpeg"
                 alt="Free Hammers - Your Soil Testing Kit"
                 className="w-full h-auto object-cover"
+                style={{ maxHeight: '500px' }}
               />
             </div>
 
