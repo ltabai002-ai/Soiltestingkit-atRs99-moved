@@ -63,7 +63,7 @@ function Dropdown({ title, description, images, isOpen, onToggle }: DropdownProp
 
             <div className="flex justify-center pt-6">
               <button className="bg-deep-green text-white font-bold px-8 py-4 rounded-lg hover:bg-deep-green/90 transition-colors duration-300 shadow-lg min-h-[56px] text-lg">
-                Learn More
+                Buy Now
               </button>
             </div>
           </div>
