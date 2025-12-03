@@ -36,6 +36,11 @@ function Dropdown({ title, description, images, isOpen, onToggle }: DropdownProp
         } overflow-hidden`}
       >
         <div className="w-full py-12 px-4 md:px-8 lg:px-12 bg-white">
+          <div className="mb-12">
+            <h4 className="text-2xl md:text-3xl font-semibold text-deep-green leading-relaxed">
+              {description}
+            </h4>
+          </div>
           <div className="space-y-12">
             {images.map((image, index) => (
               <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}>
@@ -50,7 +55,7 @@ function Dropdown({ title, description, images, isOpen, onToggle }: DropdownProp
                 </div>
                 <div className="flex-1">
                   <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
-                    {index === 0 ? description : image.caption}
+                    {image.caption}
                   </p>
                 </div>
               </div>
