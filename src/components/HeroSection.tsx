@@ -5,6 +5,8 @@ const carouselImages = [
   '/9a083a53-ed34-4538-84de-5f6833861a1f.webp',
   '/17d75adf-68ef-413d-9c2b-b1ace3af9ae6 (1).webp',
   '/13092466-0038-47eb-8a95-ffbd72ace8ff.webp',
+  '/b7a96fec-7f7a-4132-91d1-d5e722c621b1.webp',
+  '/e946a401-0d4a-47d5-b6dc-288432592f56.webp',
 ];
 
 export default function HeroSection() {
