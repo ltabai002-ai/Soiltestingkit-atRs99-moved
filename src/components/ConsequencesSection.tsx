@@ -36,14 +36,10 @@ function Dropdown({ title, description, images, isOpen, onToggle }: DropdownProp
         } overflow-hidden`}
       >
         <div className="w-full py-12 px-4 md:px-8 lg:px-12 bg-white">
-          <div className="space-y-8">
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
-              {description}
-            </p>
-
-            <div className={`grid ${images.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-8`}>
-              {images.map((image, index) => (
-                <div key={index} className="space-y-4">
+          <div className="space-y-12">
+            {images.map((image, index) => (
+              <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}>
+                <div className="flex-1">
                   <div className="aspect-video rounded-lg overflow-hidden shadow-xl">
                     <img
                       src={image.url}
@@ -51,12 +47,14 @@ function Dropdown({ title, description, images, isOpen, onToggle }: DropdownProp
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <p className="text-base md:text-lg text-gray-600 font-medium">
-                    {image.caption}
+                </div>
+                <div className="flex-1">
+                  <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
+                    {index === 0 ? description : image.caption}
                   </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
 
             <div className="flex justify-center pt-6">
               <button className="bg-deep-green text-white font-bold px-8 py-4 rounded-lg hover:bg-deep-green/90 transition-colors duration-300 shadow-lg min-h-[56px] text-lg">
