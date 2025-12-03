@@ -1,6 +1,5 @@
 import HeroSection from './components/HeroSection';
 import ConsequencesSection from './components/ConsequencesSection';
-import CTASection from './components/CTASection';
 import SolutionSection from './components/SolutionSection';
 import FinalOfferSection from './components/FinalOfferSection';
 import { createOrder } from './lib/supabase';
@@ -24,7 +23,6 @@ function App() {
     <div className="min-h-screen bg-white">
       <HeroSection />
       <ConsequencesSection />
-      <CTASection />
       <SolutionSection />
       <FinalOfferSection onSubmit={handleOrderSubmit} />
     </div>
