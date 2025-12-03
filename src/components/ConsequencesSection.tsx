@@ -96,7 +96,7 @@ export default function ConsequencesSection() {
   const backfillData = {
     title: 'Bad Backfill',
     description:
-      'Using improper backfill material or techniques can create voids and cause settling around your foundation, leading to expensive repairs and structural problems.',
+      "If the backfilling around your foundation is done poorly or with the wrong type of soil, it can create serious long-term problems. Bad backfill can trap moisture, put uneven pressure on your walls, cause cracks, and weaken the entire structure, eventually leading to costly repairs",
     images: [
       {
         url: 'https://images.pexels.com/photos/5913391/pexels-photo-5913391.jpeg?auto=compress&cs=tinysrgb&w=600',
