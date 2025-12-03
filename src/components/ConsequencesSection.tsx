@@ -80,7 +80,7 @@ export default function ConsequencesSection() {
   const soilTestData = {
     title: 'Soil Test',
     description:
-      'Conducting a soil test before construction is crucial to understand the load-bearing capacity and composition of your land. Ignoring this step can lead to severe structural issues.',
+      "If you don't do a soil test before construction, you might unknowingly start building your home on soil that is too weak to handle the load of the structure. This can lead to long-term issues like",
     images: [
       {
         url: 'https://images.pexels.com/photos/3894378/pexels-photo-3894378.jpeg?auto=compress&cs=tinysrgb&w=600',
