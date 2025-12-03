@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const carouselImages = [
-  'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/1486213/pexels-photo-1486213.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/164558/pexels-photo-164558.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/1534604/pexels-photo-1534604.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  '/7c725274-5ecd-407b-9602-c5c679cfd371.webp',
+  '/9a083a53-ed34-4538-84de-5f6833861a1f.webp',
+  '/17d75adf-68ef-413d-9c2b-b1ace3af9ae6 (1).webp',
+  '/6217ea6b-548d-4049-9695-1ae9c87e832a.webp',
+  '/13092466-0038-47eb-8a95-ffbd72ace8ff.webp',
 ];
 
 export default function HeroSection() {
